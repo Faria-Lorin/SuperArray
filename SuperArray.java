@@ -22,6 +22,9 @@ public class SuperArray{
   data[size] = element;}
   System.out.println("DONE!");
   return true;
-}
+  }
 
-}
+  public String get(int index){
+  return data[index];
+  }
+  }
