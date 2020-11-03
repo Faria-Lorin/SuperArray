@@ -62,4 +62,11 @@ public class SuperArray{
     return x;
   }
 
+  public String toString(){
+    String[] str = new String[size + 1];
+    for(int i = 0; i < size + 1; i++){
+      str[i] = data[i];
+    }
+    return Arrays.toString(str);
+  }
 }
