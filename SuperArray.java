@@ -32,4 +32,13 @@ public class SuperArray{
   data[index] = element;
   return Arrays.toString(data);
   }
+
+  private void resize(){
+    String[] re = new String[size + 10];
+    for(int i = 0; i < size + 1; i++){
+      add(data[i]);
+  }
+  data = re;
+  System.out.println(Arrays.toString(data));
+  }
 }
