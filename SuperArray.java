@@ -17,5 +17,11 @@ public class SuperArray{
     size = count;
     return size;
   }
+  public boolean add(String element){
+  if (data.length == size){
+  data[size] = element;}
+  System.out.println("DONE!");
+  return true;
+}
 
 }
