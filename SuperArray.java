@@ -5,22 +5,30 @@ public class SuperArray{
 
   public SuperArray(){
     data = new String[10];
+    for (int i = 0; i < data.length; i++){
+      data[i] = "null";
+    }
     size = 0;
   }
+
   public int size(){
-    int count = 0;
     for (int i = 0; i < data.length; i++){
-      if (!(data[i].equals(null))){
-        count ++;
+      if (!(data[i].equals("null"))){
+        size ++;
       }
     }
-    size = count;
     return size;
   }
+
   public boolean add(String element){
   if (data.length == size){
-  data[size] = element;}
-  System.out.println("DONE!");
+    String[] n = new String[size + 1 ];
+    for ( int i = 0; i < size + 1; i++){
+      n[i] = data[i];
+    }
+    n = data;
+  }
+  data[size] = element;
   return true;
   }
 
@@ -29,8 +37,10 @@ public class SuperArray{
   }
 
   public String set(int index, String element){
+  String[] a = new String[1];
+  a[0] = data[index];
   data[index] = element;
-  return Arrays.toString(data);
+  return a[0];
   }
 
   private void resize(){
@@ -40,5 +50,16 @@ public class SuperArray{
   }
   data = re;
   System.out.println(Arrays.toString(data));
+}
+
+  public boolean isEmpty(){
+    boolean x = true;
+    for (int i = 0; i < data.length; i++){
+      if (!(data[i].equals("null"))){
+        x = false;
+      }
+    }
+    return x;
   }
+
 }
