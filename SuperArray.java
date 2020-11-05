@@ -62,23 +62,34 @@ public class SuperArray{
   }
 
   public String toString(){
-    String[] str = new String[size + 1];
-    for(int i = 0; i < size + 1; i++){
+    String[] str = new String[size];
+    for(int i = 0; i < size; i++){
       str[i] = data[i];
     }
     return Arrays.toString(str);
   }
 
-    public boolean contains(String s){
-      int x = 0;
-      for(int i = 0; i < size + 1; i++){
-        if (data[i].equals(s)){
+  public boolean contains(String s){
+    int x = 0;
+    for(int i = 0; i < size + 1; i++){
+      if (data[i].equals(s)){
           x++;
         }
       }
       return x >= 1;
     }
+
   public void add(int index, String element){
-    String str = "";
-  }
+    size();
+    String[] str = new String[size+1];
+    for (int first = 0; first < index; first++){
+      str[first] = data[first];
+    }
+    add(element);
+    for (int last = index + 1; last < size + 2; last++){
+      str[last] = data[last - 1];
+    }
+    str = data;
+    System.out.println(Arrays.toString(str));;
+    }
 }
