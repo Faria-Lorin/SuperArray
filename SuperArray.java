@@ -67,6 +67,7 @@ public class SuperArray{
   }
 
   public String toString(){
+    size();
     String[] str = new String[size];
     if (isEmpty()){
       return "{}";
@@ -99,8 +100,8 @@ public class SuperArray{
     for (int last = index + 1; last < size + 2; last++){
       str[last] = data[last - 1];
     }
-    str = data;
-    System.out.println(Arrays.toString(str));
+    data = str;
+    System.out.println(toString());
     }
 
   public void clear(){
@@ -111,28 +112,28 @@ public class SuperArray{
   public String remove(int index){
     size();
     String[] str = new String[size];
-
     for (int first = 0; first < index; first++){
       str[first] = data[first];
     }
     for (int last = index + 1; last < size; last++){
       str[last-1] = data[last];
     }
-    str = data;
+    data = str;
     if (isEmpty()){
       return "{}";
     }
-    return Arrays.toString(str);
+    return toString();
   }
 
   public int indexOf(String s){
     size();
-    int oc = -1;
+    int ocurr = -1;
     for (int i = 0; i < size; i++){
       if (data[i].equals(s)){
-        oc = i;
+        ocurr = i;
       }
     }
-    return oc;
+    return ocurr;
   }
+
 }
