@@ -5,31 +5,30 @@ public class SuperArray{
 
   public SuperArray(){
     data = new String[10];
-    for (int i = 0; i < data.length; i++){
-      data[i] = null;
-    }
     size = 0;
   }
 
   public int size(){
     for (int i = 0; i < data.length; i++){
-      if (data[i] != null){
-        size ++;
+      if (data[i] == null){
+        i = data.length;
       }
+      else size = i + 1;
     }
     return size;
   }
 
   public boolean add(String element){
-  if (data.length == size){
-    String[] n = new String[size + 1 ];
-    for ( int i = 0; i < size + 1; i++){
-      n[i] = data[i];
+    size();
+    String[] temp = new String[data.length + 1];
+    if (data.length == size){
+      for (int i = 0; i < data.length; i++){
+       temp[i] = data[i];
     }
-    n = data;
-  }
-  data[size] = element;
-  return true;
+       data = temp;
+    }
+        data[size] = element;
+    return true;
   }
 
   public String get(int index){
@@ -79,4 +78,7 @@ public class SuperArray{
       }
       return x >= 1;
     }
+  public void add(int index, String element){
+    String str = "";
+  }
 }
