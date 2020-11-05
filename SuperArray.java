@@ -124,4 +124,15 @@ public class SuperArray{
     }
     return Arrays.toString(str);
   }
+
+  public int indexOf(String s){
+    size();
+    int oc = -1;
+    for (int i = 0; i < size; i++){
+      if (data[i].equals(s)){
+        oc = i;
+      }
+    }
+    return oc;
+  }
 }
