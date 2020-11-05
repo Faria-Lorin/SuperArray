@@ -8,6 +8,11 @@ public class SuperArray{
     size = 0;
   }
 
+  public SuperArray(int initialCapacity){
+    data = new String[initialCapacity];
+    size = 0;
+  }
+
   public int size(){
     for (int i = 0; i < data.length; i++){
       if (data[i] == null){
@@ -63,7 +68,10 @@ public class SuperArray{
 
   public String toString(){
     String[] str = new String[size];
-    for(int i = 0; i < size; i++){
+    if (isEmpty()){
+      return "{}";
+    }
+    else for(int i = 0; i < size; i++){
       str[i] = data[i];
     }
     return Arrays.toString(str);
@@ -92,4 +100,9 @@ public class SuperArray{
     str = data;
     System.out.println(Arrays.toString(str));;
     }
+
+  public void clear(){
+    String[] no = new String[10];
+    data = no;
+  }
 }
