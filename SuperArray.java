@@ -136,4 +136,12 @@ public class SuperArray{
     return ocurr;
   }
 
+  public String[] toArray(){
+    size();
+    String[] safety = new String[size];
+    for (int i = 0; i < size; i++){
+      safety[i] = data[i];
+    }
+    return safety;
+  }
 }
