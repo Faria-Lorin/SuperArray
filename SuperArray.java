@@ -96,8 +96,8 @@ public class SuperArray{
     for (int first = 0; first < index; first++){
       str[first] = data[first];
     }
-    add(element);
-    for (int last = index + 1; last < size + 2; last++){
+      str[index] = element;
+    for (int last = index + 1; last < size + 1; last++){
       str[last] = data[last - 1];
     }
     data = str;
@@ -112,6 +112,9 @@ public class SuperArray{
   public String remove(int index){
     size();
     String[] str = new String[size];
+    if (index > size - 1){
+      return "Failure to remove";
+    }
     for (int first = 0; first < index; first++){
       str[first] = data[first];
     }
@@ -119,9 +122,6 @@ public class SuperArray{
       str[last-1] = data[last];
     }
     data = str;
-    if (isEmpty()){
-      return "{}";
-    }
     return toString();
   }
 
