@@ -101,7 +101,6 @@ public class SuperArray{
       str[last] = data[last - 1];
     }
     data = str;
-    System.out.println(toString());
     }
 
   public void clear(){
