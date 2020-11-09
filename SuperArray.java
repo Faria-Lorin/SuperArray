@@ -182,4 +182,16 @@ public class SuperArray{
     }
     return false;
   }
+
+    public static SuperArray findOverlap(SuperArray a, SuperArray b){
+      SuperArray c = new SuperArray();
+        for (int i = 0; i < a.size(); i++){
+          for (int j = 0; i < b.size(); i++){
+            if (a.get(i).equals(b.get(j))){
+              c.add(a.get(i));
+            }
+          }
+        }
+        return c;
+      }
 }
