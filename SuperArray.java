@@ -37,24 +37,24 @@ public class SuperArray{
   }
 
   public String get(int index){
-  return data[index];
+    return data[index];
   }
 
   public String set(int index, String element){
-  String a = "";
-  a = data[index];
-  data[index] = element;
-  return a;
-  }
+    String a = "";
+    a = data[index];
+    data[index] = element;
+    return a;
+    }
 
   private void resize(){
     String[] re = new String[size + 10];
     for(int i = 0; i < size + 1; i++){
       add(data[i]);
   }
-  data = re;
-  System.out.println(Arrays.toString(data));
-}
+    data = re;
+    System.out.println(Arrays.toString(data));
+  }
 
   public boolean isEmpty(){
     boolean x = true;
@@ -130,6 +130,7 @@ public class SuperArray{
     for (int i = 0; i < size; i++){
       if (data[i].equals(s)){
         ocurr = i;
+        i = size;
       }
     }
     return ocurr;
@@ -143,4 +144,15 @@ public class SuperArray{
     }
     return safety;
   }
+
+  public static void removeDuplicates(SuperArray s){
+    s.size();
+    for (int i = 0; i < s.size();){
+      if (s.indexOf(s.get(i)) != i){
+          s.remove(i);
+      }
+      else i++;
+    }
+  }
+
 }
