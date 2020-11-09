@@ -67,6 +67,29 @@ public static int[][] create2DArrayRandomized( int rows, int cols, int maxValue)
    }
    return values;
 }
+
+
+public static void removeDuplicates(SuperArray s){
+  s.size();
+  for (int i = 0; i < s.size();){
+    if (s.indexOf(s.get(i)) != i){
+        s.remove(i);
+    }
+    else i++;
+  }
+}
+public static SuperArray findOverlap(SuperArray a, SuperArray b){
+  SuperArray c = new SuperArray();
+    for (int i = 0; i < a.size(); i++){
+      for (int j = 0; i < b.size(); i++){
+        if (a.get(i).equals(b.get(j))){
+          c.add(a.get(i));
+        }
+      }
+    }
+    return c;
+  }
+
   public static SuperArray zip(SuperArray a, SuperArray b){
     SuperArray c = new SuperArray();
     for (int i = 0; i < a.size() + b.size(); i++){
