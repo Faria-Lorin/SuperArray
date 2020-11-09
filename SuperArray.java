@@ -167,4 +167,19 @@ public class SuperArray{
     return ocurr;
   }
 
+  public boolean equals(SuperArray other){
+    boolean x = true;
+    if (other.size()==size()){
+      for (int i = 0; i < size(); i++){
+        if (other.get(i).equals(get(i))){
+          x = true;
+        }
+        else {
+          x = false;
+          i = size();
+        }
+      }
+    }
+    return false;
+  }
 }
