@@ -155,4 +155,16 @@ public class SuperArray{
     }
   }
 
+  public int lastIndexOf(String value){
+    size();
+    int ocurr = -1;
+    for (int i = size() - 1; i >= 0; i--){
+      if (data[i].equals(value)){
+        ocurr = i;
+        i = size;
+      }
+    }
+    return ocurr;
+  }
+
 }
