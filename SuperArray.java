@@ -131,7 +131,12 @@ public class SuperArray{
   public String remove(int index){
     size();
     String[] str = new String[size];
-    if (index > size - 1){
+    if (index < 0 || index >= size()){
+      throw new IndexOutOfBoundsException("Index " + index
+          + " is out of bounds");
+    }
+    {
+      if (index > size - 1){
       return "Failure to remove";
     }
     for (int first = 0; first < index; first++){
@@ -141,6 +146,7 @@ public class SuperArray{
       str[last-1] = data[last];
     }
     data = str;
+    }
     return toString();
   }
 
