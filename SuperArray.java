@@ -125,12 +125,22 @@ public class SuperArray{
   }
 
   public int indexOf(String s){
-    size();
     int ocurr = -1;
-    for (int i = 0; i < size; i++){
+    for (int i = 0; i < size(); i++){
       if (data[i].equals(s)){
         ocurr = i;
-        i = size;
+        i = size();
+      }
+    }
+    return ocurr;
+  }
+
+  public int lastIndexOf(String value){
+    int ocurr = -1;
+    for (int i = size() - 1; i >= 0; i--){
+      if (data[i].equals(value)){
+        ocurr = i;
+        i = 0;
       }
     }
     return ocurr;
@@ -144,23 +154,17 @@ public class SuperArray{
     }
     return safety;
   }
-  public int lastIndexOf(String value){
-    size();
-    int ocurr = -1;
-    for (int i = size() - 1; i >= 0; i--){
-      if (data[i].equals(value)){
-        ocurr = i;
-        i = size;
-      }
-    }
-    return ocurr;
-  }
 
   public boolean equals(SuperArray other){
-    boolean x = true;
+    boolean x = false;
     if (other.size()==size()){
       for (int i = 0; i < size(); i++){
-        if (other.get(i).equals(get(i))){
+        if (get(i) == null){
+          if (other.get(i) == null){
+            x = true;
+          }
+        }
+        else if (other.get(i)==(get(i))){
           x = true;
         }
         else {
@@ -169,7 +173,8 @@ public class SuperArray{
         }
       }
     }
-    return false;
+    else {x = false;}
+    return x;
   }
 
 }
