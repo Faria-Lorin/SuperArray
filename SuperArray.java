@@ -19,24 +19,27 @@ public class SuperArray{
     }
 
   public int size(){
-    for (int i = 0; i < data.length; i++){
-      if (data[i] == null){
-        i = data.length;
+    if (data[0] == null){
+      size = 0;
+    }
+    else for (int i = 0; i < data.length; i++){
+      if (data[i] != null){
+        size = i + 1;
       }
-      else size = i + 1;
+      else i = data.length;
     }
     return size;
   }
 
   public boolean add(String element){
     size();
-    String[] temp = new String[data.length + 1];
+    String[] temp = new String[size() + 1];
     if (data.length == size){
-      for (int i = 0; i < data.length; i++){
+      for (int i = 0; i < size(); i++){
        temp[i] = data[i];
     }
-       data = temp;
     }
+        data = temp;
         data[size] = element;
     return true;
   }
@@ -112,7 +115,7 @@ public class SuperArray{
       throw new IndexOutOfBoundsException("Index " + index
           + " is out of bounds");
     }
-    {for (int first = 0; first < index; first++){
+    else for (int first = 0; first < index; first++){
       str[first] = data[first];
     }
       str[index] = element;
@@ -121,7 +124,6 @@ public class SuperArray{
     }
     data = str;
   }
-}
 
   public void clear(){
     String[] no = new String[10];
