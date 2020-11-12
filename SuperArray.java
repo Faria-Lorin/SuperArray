@@ -11,7 +11,12 @@ public class SuperArray{
   public SuperArray(int initialCapacity){
     data = new String[initialCapacity];
     size = 0;
-  }
+    if (initialCapacity < 0.0) {
+            throw new IllegalArgumentException("Initial Capacity " + initialCapacity
+                + " cannot be negative");
+        }
+        initialCapacity = initialCapacity;
+    }
 
   public int size(){
     for (int i = 0; i < data.length; i++){
