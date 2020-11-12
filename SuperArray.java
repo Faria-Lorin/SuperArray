@@ -51,8 +51,14 @@ public class SuperArray{
 
   public String set(int index, String element){
     String a = "";
-    a = data[index];
-    data[index] = element;
+    if (index < 0 || index >= size()){
+      throw new IndexOutOfBoundsException("Index " + index
+          + " is out of bounds");
+    }
+    else{
+      a = data[index];
+      data[index] = element;
+    }
     return a;
     }
 
