@@ -108,7 +108,11 @@ public class SuperArray{
   public void add(int index, String element){
     size();
     String[] str = new String[size+1];
-    for (int first = 0; first < index; first++){
+    if (index < 0 || index >= size()){
+      throw new IndexOutOfBoundsException("Index " + index
+          + " is out of bounds");
+    }
+    {for (int first = 0; first < index; first++){
       str[first] = data[first];
     }
       str[index] = element;
@@ -116,7 +120,8 @@ public class SuperArray{
       str[last] = data[last - 1];
     }
     data = str;
-    }
+  }
+}
 
   public void clear(){
     String[] no = new String[10];
