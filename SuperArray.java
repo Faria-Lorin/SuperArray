@@ -9,13 +9,13 @@ public class SuperArray{
   }
 
   public SuperArray(int initialCapacity){
-    data = new String[initialCapacity];
-    size = 0;
     if (initialCapacity < 0.0) {
             throw new IllegalArgumentException("Initial Capacity " + initialCapacity
                 + " cannot be negative");
         }
         initialCapacity = initialCapacity;
+    data = new String[initialCapacity];
+    size = 0;
     }
 
   public int size(){
@@ -42,6 +42,10 @@ public class SuperArray{
   }
 
   public String get(int index){
+    if (index < 0 || index >= size()){
+      throw new IndexOutOfBoundsException("Index " + index
+          + " is out of bounds");
+    }
     return data[index];
   }
 
