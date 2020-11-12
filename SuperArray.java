@@ -152,12 +152,15 @@ public class SuperArray{
 
   public int indexOf(String s){
     int ocurr = -1;
+    if ( s != null){
     for (int i = 0; i < size(); i++){
       if (data[i].equals(s)){
         ocurr = i;
         i = size();
       }
     }
+  }
+  {data = data;}
     return ocurr;
   }
 
