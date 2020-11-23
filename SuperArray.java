@@ -33,6 +33,7 @@ public class SuperArray{
 
   public boolean add(String element){
     size();
+    boolean x = false;
     String[] temp = new String[size() + 1];
     if (data.length == size){
       for (int i = 0; i < size(); i++){
@@ -41,7 +42,10 @@ public class SuperArray{
     }
         data = temp;
         data[size] = element;
-    return true;
+    if (data[size].equals("element")){
+    x = true;
+  }
+  return x;
   }
 
   public String get(int index){
@@ -111,11 +115,11 @@ public class SuperArray{
   public void add(int index, String element){
     size();
     String[] str = new String[size+1];
-    if (index < 0 || index >= size()){
+    if (index < 0 || index > size()){
       throw new IndexOutOfBoundsException("Index " + index
           + " is out of bounds");
     }
-    else for (int first = 0; first < index; first++){
+    for (int first = 0; first < index; first++){
       str[first] = data[first];
     }
       str[index] = element;
@@ -132,14 +136,11 @@ public class SuperArray{
 
   public String remove(int index){
     size();
-    String[] str = new String[size];
+    String[] str = new String[size()];
+    String[] temp = new String[size()];
     if (index < 0 || index >= size()){
       throw new IndexOutOfBoundsException("Index " + index
           + " is out of bounds");
-    }
-    {
-      if (index > size - 1){
-      return "Failure to remove";
     }
     for (int first = 0; first < index; first++){
       str[first] = data[first];
@@ -147,9 +148,9 @@ public class SuperArray{
     for (int last = index + 1; last < size; last++){
       str[last-1] = data[last];
     }
+    temp[0] = data[index];
     data = str;
-    }
-    return toString();
+    return temp[0];
   }
 
   public int indexOf(String s){
