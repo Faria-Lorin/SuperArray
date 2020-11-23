@@ -1,4 +1,4 @@
-import java.util.Arrays;
+import java.util.ArrayList;
 public class Tester {
     public static void main(String[] args) {
         int err = 0;
@@ -30,6 +30,8 @@ public class Tester {
 
         a.remove(3);
         System.out.println("\n----Testing remove(3): " + a);
+        a.remove(0);
+        System.out.println("\n----Testing remove(0): " + a);
         a.remove(5);
         System.out.println("----Testing remove(5): " + a);
         a.remove(6);
@@ -39,11 +41,14 @@ public class Tester {
         System.out.println("----Testing indexOf('Cookies'): " + a.indexOf("Cookies"));
         System.out.println("----Testing indexOf('cookies'): " + a.indexOf("cookies"));
 
-        System.out.println("\n----Testing toArray()): " + Arrays.toString(a.toArray()));
+
         System.out.println("\n----Testing isEmpty(): " + a.isEmpty() + "\tExpected: false");
         a.clear();
         System.out.println("\n----Testing clear(): "+ a.toString());
         System.out.println("\n----Testing isEmpty(): " + a.isEmpty() + "\tExpected: true\n");
-
-    }
-  }
+        System.out.println("\n----Testing add(): ");
+        a.add("g");
+        System.out.println(a);
+        System.out.println(a.size());
+}
+}
